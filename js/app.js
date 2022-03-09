@@ -18,9 +18,16 @@ document.querySelector(".btn-right").addEventListener("click", function () {
 });
 
 function slide(direction) {
+  const img = document.querySelector(".img-container");
   if (pictures[index + direction] !== undefined) {
-    const img = document.querySelector(".img-container");
     index += direction;
-    img.style.backgroundImage = `url(../img/${pictures[index]}.jpeg)`
+  } else {
+    if (direction == 1) {
+      index = 0;
+    } else {
+      index = pictures.length - 1;
+    }
   }
+
+  img.style.backgroundImage = `url(../img/${pictures[index]}.jpeg)`
 }
